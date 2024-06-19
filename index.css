@@ -1,0 +1,140 @@
+:root {
+  --main-color: #3579f5;
+  --progress: 85;
+}
+
+html {
+  height: 100%;
+  line-height: 1;
+}
+
+body {
+  height: 100%;
+}
+
+.container {
+  /* max-width: 1156px; */
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.btn {
+  font-size: 14px;
+  line-height: 20px;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  text-decoration: none;
+  text-align: center;
+  background-color: white;
+  color: var(--main-color);
+  transition: 0.3s;
+  outline: none;
+}
+
+.btn:hover {
+  background-color: rgb(225, 218, 218);
+}
+
+.btn:focus {
+  background-color: #2364db;
+  color: white;
+}
+
+.check-list {
+  position: relative;
+  font-family: "Inter";
+  display: flex;
+  align-items: center;
+  max-width: 743px;
+  margin-top: 60px;
+  border-radius: 10px;
+  background-color: var(--main-color);
+  color: white;
+}
+
+.action-list {
+  margin-left: 16px;
+  font-weight: 400;
+
+  line-height: 1;
+}
+
+.action-list span {
+  border-radius: 40px;
+  background-color: #2364db;
+  font-size: 12px;
+  padding: 2px 17px;
+}
+
+.action-list h5 {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 12px 0;
+}
+
+.action-list h6 {
+  margin: 0;
+  font-size: 12px;
+}
+
+.btn_check-list {
+  position: absolute;
+  right: 2%;
+}
+
+/* ProgressBar */
+
+.progress {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  margin: 16px 0 15px 22px;
+  border-radius: 50%;
+  border-radius: 50%;
+  background: var(--main-color)
+    linear-gradient(to right, transparent 50%, white 0);
+}
+
+.progress_steps {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 20px;
+  z-index: 1;
+}
+
+.progress::before {
+  content: "";
+  display: block;
+  height: 100%;
+  margin-left: 50%;
+  transform-origin: left;
+  border-radius: 0 100% 100% 0/50%;
+}
+
+.progress::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: 50%;
+  background: var(--main-color);
+}
+
+.progress::before {
+  background: white;
+  transform: rotate(calc(((var(--progress) - 50) * 0.01turn)));
+}
+
+/* если меньше 50% то добавляем элементу класс less */
+.progress.less::before {
+  background: var(--main-color);
+  transform: rotate(calc(((var(--progress) - 0) * 0.01turn)));
+}
